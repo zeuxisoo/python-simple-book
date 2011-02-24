@@ -1,0 +1,31 @@
+{% extends "guestbook/base.html" %}
+{% load i18n %}
+{% load guestbook_filters %}
+
+{% block 'content' %}
+<div class="login detail-form">
+	{% if form.errors %}
+		<div class="error-box">
+			<p class="error"> 
+				{% trans "Please correct the errors:" %} 
+			</p>
+			{{ form|form_all_error }}
+		</div>
+	{% endif %}
+	<form action="" method="post">
+	{% csrf_token %}
+	<dl>
+		<dt>{% trans "Username" %}</dt>
+		<dd>{{ form.username }}</dd>
+	</dl>
+	<dl>
+		<dt>{% trans "Password" %}</dt>
+		<dd>{{ form.password }}</dd>
+	</dl>
+	<dl>
+		<dt>&nbsp;</dt>
+		<dd><input type="submit" name="commit" id="commit" value="{% trans 'Login' %}" /></dd>
+	</dl>
+	</form>	
+</div>
+{% endblock %}

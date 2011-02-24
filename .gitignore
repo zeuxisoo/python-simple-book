@@ -1,0 +1,6 @@
+.DS_Store
+.*~
+*.pyc
+*.db
+.DS_Store
+config.py

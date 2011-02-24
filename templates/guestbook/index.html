@@ -1,0 +1,57 @@
+{% extends 'guestbook/base.html' %}
+{% load i18n %}
+{% load pagination_tags %}
+{% load guestbook_filters %}
+
+{% block 'content' %}
+<div class="writer">
+	{% if message_form.errors %}
+		<div class="error-box">
+			<p class="error"> 
+				{% trans "Please correct the errors:" %} 
+			</p>
+			{{ message_form|form_all_error }}
+		</div>
+	{% endif %}
+	<form action="/new" method="post">
+	{% csrf_token %}
+	<dl>
+		<dt>{% trans "Subject" %}</dt>
+		<dd>{{ message_form.subject }}</dd>
+	</dl>
+	<dl>
+		<dt>{% trans "Content" %}</dt>
+		<dd>{{ message_form.content }}</dd>
+	</dl>
+	{% if user.is_authenticated %}
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd><input type="submit" name="commit" value="{% trans "Post" %}" /></dd>
+		</dl>
+	{% else %}
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd>{% trans "Please login or Register to post a message!" %}</dd>
+		</dl>
+	{% endif %}
+	</form>
+</div>
+<div class="content">
+	{% autopaginate messages settings.PAGE_PER_MESSAGE %}
+	{% for message in messages %}
+	<div class="message clear-fix">
+		<div class="subject">{{ message.subject }}</div>
+		<div class="detail">
+			<div class="owner">{{ message.user }}</div>
+			<div class="content">
+				{{ message.content|linebreaksbr }}
+				&nbsp;
+				<span>({{ message.create_date|date:"Y-m-d H:m:s" }})</span>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+	
+	{% paginate %}
+</div>
+{% endblock %}

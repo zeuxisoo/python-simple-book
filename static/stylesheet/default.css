@@ -1,0 +1,50 @@
+#wrapper { margin-top: 20px; }
+a { color: #888; text-decoration: none; }
+a:hover { color: #333; }
+
+/* helper */
+.clear-fix { zoom: 1; clear: both; }
+.clear-fix:after { content: ''; display: block; clear: both; visibility: hidden; height: 0; }
+
+/* global */
+.detail-form dl { padding: 10px 0px; }
+.detail-form dl dt { float: left; width: 120px; text-align: right; margin: 5px 5px 0px 0px; }
+.detail-form dl dd input,textarea { font-size: 14px; padding: 2px; }
+.detail-form dl dd textarea[name=content] { height: 100px; width: 300px; }
+.detail-form dl dd input[name=commit] { border: 1px solid #333; background: nonepadding-bottom: g-bottom: g: 5px; }
+
+.error-box { margin: 5px 0px 0px 20px; padding: 5px; border: 1px solid #A3A3A3; width: 350px; }
+.error-box p.error { font-weight: bold; color: #FF0000; }
+.error-box ul.error-list li { padding: 5px; }
+
+#wrapper { margin: 20 auto; width: 750px; }
+
+/* base.html header & footer */
+.header h1 { font-weight: bold; font-size: 30px; margin-left: 20px; }
+.header p { padding: 5px 0px 0px 20px; }
+
+.footer h7 { font-size: 12px; margin-left: 20px; }
+
+/* guestbook/index.html */
+.writer { margin: 0 auto; width: 700px; }
+.writer dl { padding: 10px 0px 5px 0px; }
+.writer dl dt { float: left; width: 120px; text-align: right; margin: 5px 5px 0px 0px; }
+.writer dl dd input,textarea { font-size: 14px; padding: 2px; }
+.writer dl dd textarea[name=content] { height: 100px; width: 450px; }
+.writer dl dd input[name=commit] { border: 1px solid #333; background: none; padding-bottom: 5px; }
+
+.content .message { border: 1px solid #333; margin: 0px 0px 20px 20px; padding: 5px; }
+.content .message .subject { font-weight: bold; border-bottom: 1px solid #A3A3A3; padding-bottom: 5px; }
+.content .message .detail { margin-top: 5px; }
+.content .message .detail .owner { float: left; width: 15%; border-right: 1px solid #A3A3A3; }
+.content .message .detail .content { float: left; text-align: left; width: 75%; margin-left: 15px; }
+.content .message .detail span { font-size: 12px; }
+
+/* registration/registration_form.html */
+.register .success { margin: 20px 0px 20px 20px; }
+
+/* pagination */
+.pagination { margin: 0px 0px 20px 20px; padding: 5px; border: 1px solid #000; }
+.pagination .prev {  }
+.pagination .current { font-weight: bold; }
+.pagination span {  }

@@ -1,0 +1,32 @@
+{% load i18n %}
+
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" media="screen" href="{{ MEDIA_URL }}/stylesheet/reset.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="{{ MEDIA_URL }}/stylesheet/default.css" />
+<title></title>
+<body>
+<div id="wrapper">
+	<div class="header">
+		<h1>{% trans "PyBook" %}</h1>
+		<p>
+			<a href="/">{% trans "Index" %}</a>
+			{% if user.is_authenticated %}
+				| Welcome! {{ user }}
+				(<a href="/accounts/logout?next=/">{% trans "Logout" %}</a>)
+			{% else %}
+				| <a href="/accounts/login">{% trans "Login" %}</a>
+				| <a href="/accounts/register">{% trans "Register" %}</a>
+			{% endif %}
+		</p>
+	</div>
+	{% block 'content' %}{% endblock %}
+	<div class="footer">
+		<h7>&copy; 2011 {% trans "PyBook" %}</h7>
+	</div>
+</div>
+</body>
+</head>
+</html>
